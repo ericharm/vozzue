@@ -7,7 +7,7 @@ class LoginController < AppController
     if user = User.find_by(:email => data["email"])
       if user.authenticate(data["password"])
         session[:user_id] = user.id
-        body "Logged in as #{user.email}"
+        body user.to_json
       else
         body "Incorrect password"
       end

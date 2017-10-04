@@ -1,12 +1,18 @@
 <h1>Welcome to Chooble</h1>
 
 <div id="app">
-  <div id="login-form">
+
+  <form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">
     <label>Email:</label>
     <input v-model="email" />
     <label>Password:</label>
-    <input v-model="password" />
-    <button v-on:click="login">Login</button>
+    <input type="password" v-model="password" />
+    <button>Login</button>
+  </form>
+
+  <div id="profile" v-if="loggedIn">
+    Profile for {{ currentUser.email }}
   </div>
+
 </div>
 

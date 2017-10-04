@@ -21,7 +21,10 @@ configure database credentials in config/database.yml
 # Run local server
 
 `webpack` to bundle javascript
-`rerun rackup --signal INT` to run WEBrick server at port 9292
+
+`rackup` to run WEBrick server at port 9292
+
+`rerun rackup --signal INT` to run WEBrick server at port 9292 and watch for changes
 
 ## Roadmap
 
