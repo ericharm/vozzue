@@ -3,7 +3,7 @@ import VueMaterial from 'vue-material';
 Vue.use(VueMaterial);
 import { loginForm } from './components/loginForm';
 import { profile } from './components/profile';
-
+require("../public/css/style.scss");
 
 new Vue({
     el: "#app",
