@@ -11879,13 +11879,14 @@ var _vue2 = _interopRequireDefault(_vue);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-__webpack_require__(10);
-__webpack_require__(11);
+__webpack_require__(5);
+__webpack_require__(9);
 
 new _vue2.default({
     el: "#app",
     template: '\
         <div>\
+            <h1>Welcome to Chooble</h1>\
             <login-form></login-form>\
             <profile></profile>\
         </div>\
@@ -11920,7 +11921,69 @@ module.exports = g;
 
 
 /***/ }),
-/* 5 */,
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _vue = __webpack_require__(0);
+
+var _vue2 = _interopRequireDefault(_vue);
+
+var _vueResource = __webpack_require__(1);
+
+var _vueResource2 = _interopRequireDefault(_vueResource);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_vue2.default.use(_vueResource2.default);
+var store = __webpack_require__(2);
+
+module.exports = _vue2.default.component('login-form', {
+    template: '\
+        <form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">\
+        <label>Email:</label>\
+        <input v-model="email" />\
+        <label>Password:</label>\
+        <input type="password" v-model="password" />\
+        <button>Login</button>\
+        </form>\
+    ',
+    //props: ['email', 'password'],
+    data: function data() {
+        return {
+            email: "", password: ""
+        };
+    },
+    computed: {
+        loggedIn: function loggedIn() {
+            return store.state.loggedIn;
+        },
+        loginUrl: function loginUrl() {
+            // should use store getters
+            return store.state.API + "sessions/login";
+        }
+    },
+    methods: {
+        login: function login() {
+            console.log(this.email);
+            var loginUrl = this.loginUrl;
+            this.$http.post(loginUrl, {
+                email: this.email,
+                password: this.password
+            }).then(function (response) {
+                console.log(response);
+                var user = response.body;
+                store.commit('logIn', user);
+            }, function (error) {
+                console.log(error);
+            });
+        }
+    }
+});
+
+/***/ }),
 /* 6 */
 /***/ (function(module, exports) {
 
@@ -13029,65 +13092,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 9 */,
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-var _vue = __webpack_require__(0);
-
-var _vue2 = _interopRequireDefault(_vue);
-
-var _vueResource = __webpack_require__(1);
-
-var _vueResource2 = _interopRequireDefault(_vueResource);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-_vue2.default.use(_vueResource2.default);
-var store = __webpack_require__(2);
-
-module.exports = _vue2.default.component('login-form', {
-    template: '\
-        <form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">\
-        <label>Email:</label>\
-        <input v-model="email" />\
-        <label>Password:</label>\
-        <input type="password" v-model="password" />\
-        <button>Login</button>\
-        </form>\
-    ',
-    props: ['email', 'password'],
-    computed: {
-        loggedIn: function loggedIn() {
-            return store.state.loggedIn;
-        },
-        loginUrl: function loginUrl() {
-            // should use store getters
-            return store.state.API + "sessions/login";
-        }
-    },
-    methods: {
-        login: function login() {
-            var loginUrl = this.loginUrl;
-            this.$http.post(loginUrl, {
-                email: this.email,
-                password: this.password
-            }).then(function (response) {
-                console.log(response);
-                var user = response.body;
-                store.commit('logIn', user);
-            }, function (error) {
-                console.log(error);
-            });
-        }
-    }
-});
-
-/***/ }),
-/* 11 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

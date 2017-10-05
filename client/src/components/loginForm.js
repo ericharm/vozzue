@@ -13,7 +13,12 @@ module.exports = Vue.component('login-form', {
         <button>Login</button>\
         </form>\
     ',
-    props: ['email', 'password'],
+    //props: ['email', 'password'],
+    data: function () {
+        return {
+            email: "", password: ""
+        };
+    },
     computed: {
         loggedIn: function () {
             return store.state.loggedIn;
@@ -25,6 +30,7 @@ module.exports = Vue.component('login-form', {
     },
     methods: {
         login: function () {
+            console.log(this.email);
             var loginUrl = this.loginUrl;
             this.$http.post(loginUrl, {
                 email: this.email,
