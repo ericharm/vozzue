@@ -7,7 +7,7 @@ This is a template for building a full stack app with a Ruby API running on Sina
 
 `git clone`
 
-`cd chooble/`
+`cd vozzue/`
 
 
 ## API
@@ -45,11 +45,11 @@ configure database credentials in config/database.yml
 
 `npm install`
 
-`npm start` to run http-server at port 7676
+`npm start` to build, run webpack-dev-server at port 7676 and watch for changes
 
 ### _Tests_
 
-not sure what this command looks like yet
+`npm test`
 
 ### _Roadmap_
 
