@@ -4,4 +4,5 @@
 api/public/js/bundle.js
 
 client/node_modules/*
+client/.jshintrc
 
