@@ -3,14 +3,14 @@
 This is a template for building a full stack app with a Ruby API running on Sinatra and a Vue/Material UI frontend.
 
 
-## Setup
+## First things first
 
 `git clone`
 
 `cd chooble/`
 
 
-## _API_
+## API
 
 `cd api/`
 
@@ -26,11 +26,11 @@ configure database credentials in config/database.yml
 
 `rerun rackup --signal INT` to run WEBrick server at port 9292 and watch for changes
 
-### Tests
+### _Tests_
 
 `rspec spec/`
 
-### Roadmap
+### _Roadmap_
 
 **Interactive console** `tux`
 
@@ -39,7 +39,7 @@ configure database credentials in config/database.yml
 **Routes** In config.ru, map the base url for a set of endpoints to a controller, and specify the individual routes in that controller.
 
 
-## _Client_
+## Client
 
 `cd client/`
 
@@ -47,11 +47,11 @@ configure database credentials in config/database.yml
 
 `npm start` to run http-server at port 7676
 
-### Tests
+### _Tests_
 
 not sure what this command looks like yet
 
-### Roadmap
+### _Roadmap_
 
 **Global Vue instance** src/app.js
 
