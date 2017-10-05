@@ -13,7 +13,6 @@ module.exports = Vue.component('login-form', {
         <button>Login</button>\
         </form>\
     ',
-    //props: ['email', 'password'],
     data: function () {
         return {
             email: "", password: ""
@@ -24,13 +23,11 @@ module.exports = Vue.component('login-form', {
             return store.state.loggedIn;
         },
         loginUrl: function () {
-            // should use store getters
             return store.state.API + "sessions/login";
         }
     },
     methods: {
         login: function () {
-            console.log(this.email);
             var loginUrl = this.loginUrl;
             this.$http.post(loginUrl, {
                 email: this.email,

@@ -11950,7 +11950,6 @@ module.exports = _vue2.default.component('login-form', {
         <button>Login</button>\
         </form>\
     ',
-    //props: ['email', 'password'],
     data: function data() {
         return {
             email: "", password: ""
@@ -11961,13 +11960,11 @@ module.exports = _vue2.default.component('login-form', {
             return store.state.loggedIn;
         },
         loginUrl: function loginUrl() {
-            // should use store getters
             return store.state.API + "sessions/login";
         }
     },
     methods: {
         login: function login() {
-            console.log(this.email);
             var loginUrl = this.loginUrl;
             this.$http.post(loginUrl, {
                 email: this.email,
