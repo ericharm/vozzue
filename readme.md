@@ -10,7 +10,7 @@ This is a template for building a full stack app with a Ruby API running on Sina
 `cd chooble/`
 
 
-## API
+## _API_
 
 `cd api/`
 
@@ -39,7 +39,7 @@ configure database credentials in config/database.yml
 **Routes** In config.ru, map the base url for a set of endpoints to a controller, and specify the individual routes in that controller.
 
 
-## Client
+## _Client_
 
 `cd client/`
 
