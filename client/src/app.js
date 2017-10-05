@@ -1,13 +1,14 @@
 import Vue from 'vue';
-require('./components/loginForm');
-require('./components/profile');
+import VueMaterial from 'vue-material';
+Vue.use(VueMaterial);
+import { loginForm } from './components/loginForm';
+import { profile } from './components/profile';
 
 
 new Vue({
     el: "#app",
     template: '\
-        <div>\
-            <h1>Welcome to Chooble</h1>\
+        <div class="top-level-container">\
             <login-form></login-form>\
             <profile></profile>\
         </div>\

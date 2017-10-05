@@ -1,8 +1,7 @@
 import Vue from 'vue';
-require('vue-resource');
-var store = require('../store');
+import { store } from '../store';
 
-module.exports = Vue.component('profile', {
+export const profile = Vue.component('profile', {
     template: '\
         <div id="profile" v-if="loggedIn">\
             Profile for {{ currentUser.email }}\

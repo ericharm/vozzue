@@ -1,17 +1,33 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
-Vue.use(VueResource);
-var store = require('../store');
+import { store } from '../store';
 
-module.exports = Vue.component('login-form', {
+Vue.use(VueResource);
+
+export const loginForm = Vue.component('login-form', {
     template: '\
-        <form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">\
-        <label>Email:</label>\
-        <input v-model="email" />\
-        <label>Password:</label>\
-        <input type="password" v-model="password" />\
-        <button>Login</button>\
-        </form>\
+    <form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">\
+        <md-card>\
+          <md-card-header>\
+            <div class="md-title">Log in</div>\
+          </md-card-header>\
+          <div class="padder">\
+              <md-input-container>\
+                <label>Email</label>\
+                <md-input placeholder="" v-model="email"></md-input>\
+              </md-input-container>\
+\
+              <md-input-container>\
+                <label>Password</label>\
+                <md-input type="password" v-model="password"></md-input>\
+              </md-input-container>\
+\
+              <md-card-actions>\
+                <md-button v-on:click="login">Sign In</md-button>\
+              </md-card-actions>\
+            </div>\
+        </md-card>\
+    </form>\
     ',
     data: function () {
         return {
@@ -28,6 +44,7 @@ module.exports = Vue.component('login-form', {
     },
     methods: {
         login: function () {
+            console.log("awef");
             var loginUrl = this.loginUrl;
             this.$http.post(loginUrl, {
                 email: this.email,
@@ -42,4 +59,10 @@ module.exports = Vue.component('login-form', {
         }
     }
 });
-
+        //<form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">\
+            //<label>Email:</label>\
+            //<input v-model="email" />\
+            //<label>Password:</label>\
+            //<input type="password" v-model="password" />\
+            //<button>Login</button>\
+        //</form>\

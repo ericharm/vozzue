@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 Vue.use(Vuex);
 
-module.exports = new Vuex.Store({
+export const store = new Vuex.Store({
     state: {
         API: "http://localhost:9292/",
         loggedIn: false,
