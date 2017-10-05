@@ -1,7 +1,7 @@
 module.exports = {
 
     entry: {
-        bundle: __dirname + '/public/js/index.js',
+        bundle: __dirname + '/src/app.js',
     },
 
     output: {
@@ -12,6 +12,14 @@ module.exports = {
     devServer: {
         contentBase: './public',
         inline: true
+    },
+
+    watch: true,
+
+    resolve: {
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
     },
 
     module: {

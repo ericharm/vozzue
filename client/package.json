@@ -4,12 +4,13 @@
   "description": "`git clone`",
   "main": "index.js",
   "scripts": {
-    "start": "webpack && webpack-dev-server --progress --colors --port 7676 --hot",
+    "start": "webpack & webpack-dev-server --colors --port 7676",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "vue": "^2.4.4",
     "vue-resource": "^1.3.4",
     "vuex": "^2.4.1"
   },
@@ -18,7 +19,6 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-es2015": "^6.24.1",
-    "http-server": "^0.10.0",
     "webpack": "^3.6.0"
   },
   "repository": {

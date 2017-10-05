@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chooble</title>
-    <script src="js/vue.js"></script>
+    <!--<script src="js/vue.js"></script>-->
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
@@ -14,7 +14,9 @@
 
     <div id="app">
 
-      <form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">
+      <!--<login-form></login-form>-->
+      <!--<profile></profile>-->
+      <!--<form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">
         <label>Email:</label>
         <input v-model="email" />
         <label>Password:</label>
@@ -24,7 +26,7 @@
 
       <div id="profile" v-if="loggedIn">
         Profile for {{ currentUser.email }}
-      </div>
+      </div>-->
 
     </div>
 
