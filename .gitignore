@@ -1,4 +1,7 @@
-public/js/bundle.js
-node_modules/*
 *.swp
 *.DS_Store
+
+api/public/js/bundle.js
+
+client/node_modules/*
+
