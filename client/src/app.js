@@ -10,6 +10,10 @@ new Vue({
     el: "#app",
     template: '\
         <div class="top-level-container">\
+            <md-toolbar>\
+              <h2 class="md-title">Vozzue</h2>\
+            </md-toolbar>\
+\
             <login-form></login-form>\
             <profile></profile>\
         </div>\

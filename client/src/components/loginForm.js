@@ -7,7 +7,7 @@ Vue.use(VueResource);
 export const loginForm = Vue.component('login-form', {
     template: '\
     <form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">\
-        <md-card>\
+        <md-card v-bind:style="style">\
           <md-card-header>\
             <div class="md-title">Log in</div>\
           </md-card-header>\
@@ -31,7 +31,13 @@ export const loginForm = Vue.component('login-form', {
     ',
     data: function () {
         return {
-            email: "", password: ""
+            email: "", password: "",
+            style: {
+                padding: "2rem",
+                width: "90%",
+                margin: "2rem auto",
+                "max-width": "600px"
+            }
         };
     },
     computed: {
@@ -59,10 +65,4 @@ export const loginForm = Vue.component('login-form', {
         }
     }
 });
-        //<form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">\
-            //<label>Email:</label>\
-            //<input v-model="email" />\
-            //<label>Password:</label>\
-            //<input type="password" v-model="password" />\
-            //<button>Login</button>\
-        //</form>\
+
