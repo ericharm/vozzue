@@ -8,10 +8,9 @@ export const loginForm = Vue.component('login-form', {
     template: '\
     <form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">\
         <md-card v-bind:style="style">\
-          <md-card-header>\
-            <div class="md-title">Log in</div>\
-          </md-card-header>\
-          <div class="padder">\
+              <md-card-header>\
+                <div class="md-title">Log in</div>\
+              </md-card-header>\
               <md-input-container>\
                 <label>Email</label>\
                 <md-input placeholder="" v-model="email"></md-input>\
@@ -22,10 +21,12 @@ export const loginForm = Vue.component('login-form', {
                 <md-input type="password" v-model="password"></md-input>\
               </md-input-container>\
 \
+              <md-subheader class="md-warn">{{ error }}</md-subheader>\
               <md-card-actions>\
-                <md-button type="submit" v-on:click="login">Sign In</md-button>\
+                <md-button class="md-accent" type="submit" v-on:click="login">\
+                  Sign In\
+                </md-button>\
               </md-card-actions>\
-            </div>\
         </md-card>\
     </form>\
     ',
@@ -37,7 +38,8 @@ export const loginForm = Vue.component('login-form', {
                 width: "90%",
                 margin: "2rem auto",
                 "max-width": "600px"
-            }
+            },
+            error: ""
         };
     },
     computed: {
@@ -50,7 +52,6 @@ export const loginForm = Vue.component('login-form', {
     },
     methods: {
         login: function () {
-            console.log("awef");
             var loginUrl = this.loginUrl;
             this.$http.post(loginUrl, {
                 email: this.email,
@@ -60,7 +61,7 @@ export const loginForm = Vue.component('login-form', {
                 var user = response.body;
                 store.commit('logIn', user);
             }, function (error) {
-                console.log(error);
+                this.error = error.bodyText;
             });
         }
     }

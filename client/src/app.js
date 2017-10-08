@@ -4,7 +4,15 @@ Vue.use(VueMaterial);
 import { loginForm } from './components/loginForm';
 import { profile } from './components/profile';
 require("../public/css/style.scss");
-//require("../node_modules/vue-material/dist/vue-material.css");
+
+//Vue.material.registerTheme( 'vozzue', {
+  //primary: 'purple',
+  //accent: 'yellow',
+  //warn: 'red',
+  //background: 'white'
+//});
+
+//Vue.material.setCurrentTheme('vozzue');
 
 new Vue({
     el: "#app",

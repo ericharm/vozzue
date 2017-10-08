@@ -18,6 +18,7 @@ class SessionsController < AppController
         session[:user_id] = user.id
         body user.to_json
       else
+        status 400
         body "Incorrect password"
       end
     else
