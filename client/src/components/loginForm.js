@@ -23,7 +23,7 @@ export const loginForm = Vue.component('login-form', {
               </md-input-container>\
 \
               <md-card-actions>\
-                <md-button v-on:click="login">Sign In</md-button>\
+                <md-button type="submit" v-on:click="login">Sign In</md-button>\
               </md-card-actions>\
             </div>\
         </md-card>\
