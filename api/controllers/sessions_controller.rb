@@ -1,10 +1,12 @@
 require 'sinatra/cross_origin'
 
 class SessionsController < AppController
+  enable :sessions
 
   configure do
     enable :cross_origin
   end
+
   before do
     response.headers['Access-Control-Allow-Origin'] = '*'
   end
@@ -15,7 +17,6 @@ class SessionsController < AppController
 
     if user = User.find_by(:email => data["email"])
       if user.authenticate(data["password"])
-        session[:user_id] = user.id
         body user.to_json
       else
         status 400
@@ -25,6 +26,9 @@ class SessionsController < AppController
       status 400
       body "User not found"
     end
+  end
+
+  get "/logout" do
   end
 
   options "/login" do

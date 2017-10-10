@@ -6,8 +6,8 @@ Vue.use(VueResource);
 
 export const loginForm = Vue.component('login-form', {
     template: '\
-    <form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">\
-        <md-card v-bind:style="style">\
+        <form id="login-form" v-on:submit.prevent="login" v-if="!loggedIn">\
+            <md-card v-bind:style="style">\
               <md-card-header>\
                 <div class="md-title">Log in</div>\
               </md-card-header>\
@@ -15,20 +15,18 @@ export const loginForm = Vue.component('login-form', {
                 <label>Email</label>\
                 <md-input placeholder="" v-model="email"></md-input>\
               </md-input-container>\
-\
               <md-input-container>\
                 <label>Password</label>\
                 <md-input type="password" v-model="password"></md-input>\
               </md-input-container>\
-\
               <md-subheader class="md-warn">{{ error }}</md-subheader>\
               <md-card-actions>\
-                <md-button class="md-accent" type="submit" v-on:click="login">\
+                <md-button class="md-accent" type="submit">\
                   Sign In\
                 </md-button>\
               </md-card-actions>\
-        </md-card>\
-    </form>\
+            </md-card>\
+        </form>\
     ',
     data: function () {
         return {
@@ -48,12 +46,14 @@ export const loginForm = Vue.component('login-form', {
         },
         loginUrl: function () {
             return store.state.API + "sessions/login";
+        },
+        sessionUrl: function () {
+            return store.state.API + "sessions/";
         }
     },
     methods: {
         login: function () {
-            var loginUrl = this.loginUrl;
-            this.$http.post(loginUrl, {
+            this.$http.post(this.loginUrl, {
                 email: this.email,
                 password: this.password
             }).then(function (response) {

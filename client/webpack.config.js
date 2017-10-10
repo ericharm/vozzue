@@ -33,6 +33,7 @@ module.exports = {
                     // other vue-loader options go here
                 }
             },
+            { test: /\.(png|woff|woff2|eot|ttf|otf|svg)$/, loader: 'file-loader?limit=100000' },
             { test: /\.scss$/, loader: 'vue-style-loader!css-loader!sass-loader'},
             { test: /\.sass$/, loader: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'},
             { test: /\.css$/, loader: 'vue-style-loader!css-loader!'},
